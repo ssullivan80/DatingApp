@@ -1,0 +1,8 @@
+{
+    "debug.allowBreakpointsEverywhere": true,
+    "launch": {
+    
+    },
+    "omnisharp.waitForDebugger": true,
+    "razor.languageServer.debug": true
+}
