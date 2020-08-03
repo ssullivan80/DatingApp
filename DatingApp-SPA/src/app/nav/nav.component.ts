@@ -22,16 +22,16 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(
       next => {
-        this.alertify.success('Logged in scucess');
+        this.alertify.success('Logged in success');
       },
       error => {
         this.alertify.error(error);
       },
-
       () =>  {
         this.router.navigate(['/members']);
       }
     );
+    console.log('photoUrl ' + this.photoUrl);
   }
 
   loggedIn() {

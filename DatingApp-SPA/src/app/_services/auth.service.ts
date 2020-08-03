@@ -27,20 +27,23 @@ login(model: any) {
   return this.http.post(this.baseUrl + 'login', model)
     .pipe(
       map((response: any) => {
-      const user = response;
-      if (user) {
-        localStorage.setItem('token', user.token);
-        localStorage.setItem('user', JSON.stringify(user.user));
-        this.decodedToken = this.jwtHelper.decodeToken(user.token);
-        this.currentUser = user.user;
-        this.changeMemberPhoto(this.currentUser.photoUrl);
-      }
-      }))
-    ;
+        const user = response;
+        console.log(user);
+        if (user) {          
+          localStorage.setItem('token', user.token);
+          localStorage.setItem('user', JSON.stringify(user.user));
+          this.decodedToken = this.jwtHelper.decodeToken(user.token);
+          this.currentUser = user.user;
+          console.log('test');
+          this.changeMemberPhoto(this.currentUser.photoUrl);
+          console.log(this.currentPhotoUrl);
+        }
+      })
+    );
 }
 
-register(model: any) {
-  return this.http.post(this.baseUrl + 'register', model);
+register(user: User) {
+  return this.http.post(this.baseUrl + 'register', user);
 }
 
 logggedIn() {
